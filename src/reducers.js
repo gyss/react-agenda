@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import appReducer from './containers/App/reducer';
+
+import contactsReducer from './Contacts/reducer';
 
 export default function createReducer() {
   return combineReducers({
-    app: appReducer,
+    contacts: contactsReducer,
   });
 }

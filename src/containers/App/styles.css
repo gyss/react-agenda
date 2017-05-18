@@ -1,13 +1,13 @@
-.App {
+.app {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
 
 .App-intro {

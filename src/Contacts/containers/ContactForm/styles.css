@@ -1,0 +1,9 @@
+.contact-form {
+  padding: 10px;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
