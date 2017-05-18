@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 
 import './styles.css';
 
-import { editContact } from '../../actions';
+import { editContact, removeContact } from '../../actions';
 
 class ContactListItem extends Component {
   render() {
     const contact = this.props.contact;
 
     return (
-      <div className="contact-list-item" onClick={this.props.onClick}>
-        {contact.name}
+      <div className="contact-list-item">
+        <div onClick={this.props.onSelect}>{contact.name}</div>
+        <div className="contact-list-item__delete" onClick={this.props.onDelete}>X</div>
       </div>
     );
   }
@@ -24,9 +25,12 @@ ContactListItem.propTypes = {
 
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
-    onClick: () => {
+    onSelect: () => {
       dispatch(editContact(ownProps.contact));
     },
+    onDelete: () => {
+      dispatch(removeContact(ownProps.contact));
+    }
   };
 }
 const mapStateToProps = null;

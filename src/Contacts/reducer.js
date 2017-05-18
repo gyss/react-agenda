@@ -22,9 +22,12 @@ function contactsReducer(state = initialState, action) {
         contactEditting: action.payload.id
       });
     case REMOVE_CONTACT:
+      const index = state.list.findIndex(contact => contact.id === action.payload.id);
       return Object.assign({}, state, {
-        loading: false,
-        list: action.payload
+        list: [
+          ...state.list.slice(0, index),
+          ...state.list.slice(index + 1)
+        ]
       });
     case LOAD_CONTACTS:
       return Object.assign({}, state, {

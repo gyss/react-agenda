@@ -1,5 +1,9 @@
 .contact-list-item {
-  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin: 15px 0px;
 
   width: 100%;
   white-space: nowrap;
@@ -7,4 +11,9 @@
   text-overflow: ellipsis;
 
   cursor: pointer;
+}
+
+.contact-list-item__delete {
+  color: red;
+  margin-left: 20px;
 }

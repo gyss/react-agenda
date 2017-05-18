@@ -23,14 +23,14 @@ export function loadContacts() {
   };
 }
 
-export function removeContact() {
+export function removeContact(contact) {
   return {
     type: REMOVE_CONTACT,
+    payload: contact,
   };
 }
 
 export function editContact(contact) {
-  console.log('llelafg = ', contact);
   return {
     type: EDIT_CONTACT,
     payload: contact,
