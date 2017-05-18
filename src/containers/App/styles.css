@@ -10,6 +10,10 @@
   height: 100%;
 }
 
+.content-area {
+  margin: 10px;
+}
+
 .App-intro {
   font-size: large;
 }

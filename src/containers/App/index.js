@@ -22,11 +22,11 @@ class App extends Component {
         <Header>React Agenda 2017</Header>
         <div className="content">
           <Sidebar>
-            <AddContactButton></AddContactButton>
-            <ContactList></ContactList>
+            <AddContactButton />
+            <ContactList />
           </Sidebar>
-          <div>
-            <ContactForm></ContactForm>
+          <div className="content-area">
+            { !!this.props.contactEditting ? <ContactForm /> : <p>Click on "Add Contact" button to create a new contact.</p> }
           </div>
         </div>
       </div>
@@ -41,6 +41,10 @@ const mapDispatchToProps = function(dispatch) {
     },
   };
 }
-const mapStateToProps = null;
+const mapStateToProps = (state, ownProps) => {
+   return {
+      contactEditting: state.contacts.contactEditting
+   };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
