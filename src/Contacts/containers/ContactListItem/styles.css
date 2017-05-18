@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  margin: 15px 0px;
+  padding: 15px 0px;
 
   width: 100%;
   white-space: nowrap;
@@ -11,6 +11,9 @@
   text-overflow: ellipsis;
 
   cursor: pointer;
+}
+.contact-list-item--selected {
+  background-color: #8a8a8a;
 }
 
 .contact-list-item__delete {

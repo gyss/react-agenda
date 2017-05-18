@@ -27,7 +27,8 @@ function contactsReducer(state = initialState, action) {
         list: [
           ...state.list.slice(0, index),
           ...state.list.slice(index + 1)
-        ]
+        ],
+        contactEditting: state.contactEditting === action.payload.id ? 0 : state.contactEditting
       });
     case LOAD_CONTACTS:
       return Object.assign({}, state, {

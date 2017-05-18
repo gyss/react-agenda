@@ -9,10 +9,10 @@ import { editContact, removeContact } from '../../actions';
 class ContactListItem extends Component {
   render() {
     const contact = this.props.contact;
-
     return (
-      <div className="contact-list-item">
-        <div onClick={this.props.onSelect}>{contact.name}</div>
+      <div onClick={this.props.onSelect} 
+          className={"contact-list-item " + (this.props.selected ? 'contact-list-item--selected' : '')}>
+        <div>{contact.name}</div>
         <div className="contact-list-item__delete" onClick={this.props.onDelete}>X</div>
       </div>
     );
@@ -20,7 +20,12 @@ class ContactListItem extends Component {
 }
 
 ContactListItem.propTypes = {
-  contact: PropTypes.object.isRequired
+  contact: PropTypes.object.isRequired,
+  selected: PropTypes.bool
+};
+
+ContactListItem.defaultProps = {
+   selected: false
 };
 
 const mapDispatchToProps = function(dispatch, ownProps) {
@@ -28,7 +33,10 @@ const mapDispatchToProps = function(dispatch, ownProps) {
     onSelect: () => {
       dispatch(editContact(ownProps.contact));
     },
-    onDelete: () => {
+    onDelete: (evt) => {
+      if (evt !== undefined && evt.stopPropagation) {
+        evt.stopPropagation();
+      }
       dispatch(removeContact(ownProps.contact));
     }
   };

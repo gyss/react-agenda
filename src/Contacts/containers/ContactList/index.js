@@ -7,11 +7,12 @@ import './styles.css';
 
 class ContactList extends Component {
   render() {
-    const list = this.props.contacts.map(contact => <ContactListItem key={contact.id} contact={contact}></ContactListItem>);
+    const { list, contactEditting } = this.props.contacts;
+    const contactList = list.map(contact => <ContactListItem key={contact.id} contact={contact} selected={contactEditting === contact.id}></ContactListItem>);
     
     return (
       <div>
-        {list}
+        {contactList}
       </div>
     );
   }
@@ -20,7 +21,7 @@ class ContactList extends Component {
 const mapDispatchToProps = null;
 const mapStateToProps = (state, ownProps) => {
    return {
-      contacts: state.contacts.list
+      contacts: state.contacts
    };
 };
 
