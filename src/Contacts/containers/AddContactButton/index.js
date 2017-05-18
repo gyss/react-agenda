@@ -15,7 +15,7 @@ class AddContactButton extends Component {
   }
 }
 
-export function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = function(dispatch) {
   return {
     onButtonClicked: (evt) => {
       if (evt !== undefined && evt.preventDefault) {
@@ -26,13 +26,5 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 const mapStateToProps = null;
-/*
-const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
-  loading: makeSelectLoading(),
-  error: makeSelectError(),
-});
-*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddContactButton);

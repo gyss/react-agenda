@@ -34,7 +34,7 @@ class App extends Component {
   }
 }
 
-export function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = function(dispatch) {
   return {
     loadContacts: (evt) => {
       dispatch(loadContacts());
@@ -42,13 +42,5 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 const mapStateToProps = null;
-/*
-const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
-  loading: makeSelectLoading(),
-  error: makeSelectError(),
-});
-*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

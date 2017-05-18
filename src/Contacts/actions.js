@@ -1,7 +1,8 @@
 import {
   ADD_CONTACT,
   REMOVE_CONTACT,
-  LOAD_CONTACTS
+  LOAD_CONTACTS,
+  EDIT_CONTACT,
 } from './constants';
 
 let counter = 1;
@@ -28,8 +29,15 @@ export function removeContact() {
   };
 }
 
+export function editContact(contact) {
+  console.log('llelafg = ', contact);
+  return {
+    type: EDIT_CONTACT,
+    payload: contact,
+  };
+}
+
 export function addContact() {
-  console.log('llegas');
   return {
     type: ADD_CONTACT,
     payload: newContact(counter++),

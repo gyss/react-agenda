@@ -1,0 +1,10 @@
+.contact-list-item {
+  margin: 10px 0px;
+
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  cursor: pointer;
+}
