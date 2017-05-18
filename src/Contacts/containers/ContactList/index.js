@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import ContactListItem from '../ContactListItem';
 
-import './styles.css';
-
 class ContactList extends Component {
   render() {
     const { list, contactEdited } = this.props.contacts;

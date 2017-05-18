@@ -14,7 +14,6 @@ class ContactForm extends Component {
   }
 
   handleSubmit = (event) => {
-    //console.log(this.state);
     event.preventDefault();
     this.props.updateContact();
   }
@@ -31,7 +30,7 @@ class ContactForm extends Component {
           
             <div className="contact-form__field">
               <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" value={contact.name} onChange={this.handleChange} placeholder="e.g.: Jane Doe" />
+              <input id="name" name="name" type="text" value={contact.name} onChange={this.handleChange} placeholder="Jane Doe..." />
             </div>
 
             <div className="contact-form__field">
@@ -39,26 +38,18 @@ class ContactForm extends Component {
               <input id="phone" name="phone" type="text" value={contact.phone} onChange={this.handleChange} placeholder="075 41..." />
             </div>
 
+            <div className="contact-form__field">
+              <label htmlFor="email">Email</label>
+              <input id="email" name="email" type="email" value={contact.email} onChange={this.handleChange} placeholder="hello@react.com" />
+            </div>
+
+            <div className="contact-form__field">
+              <label htmlFor="address">Address</label>
+              <input id="address" name="address" type="text" value={contact.address} onChange={this.handleChange} placeholder="77 Baker Street..." />
+            </div>
+
             <button type="submit">Save</button> 
-          
         </form>
-      
-{/* 
-            <input name="title" type="text" value={this.state.value} onChange={this.handleChange} />
-
-            <textarea name="description" value={this.state.value} onChange={this.handleChange} />
-
-            <select name="fruit" value={this.state.value} onChange={this.handleChange}>
-               <option value="grapefruit">Grapefruit</option>
-               <option value="orange">Orange</option>
-            </select>
-
-            <input name="isGoing" type="checkbox" onChange={this.handleChange}
-                 checked={this.state.isGoing} />
-
-            <input type="submit" value="Submit" />
-*/}           
-
       </div>
     );
   }

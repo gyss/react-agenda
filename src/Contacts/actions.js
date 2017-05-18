@@ -14,6 +14,8 @@ function newContact(contactId) {
     id: contactId,
     name: `New contact (${contactId})`,
     phone: '',
+    address: '',
+    email: '',
   };
 }
 
