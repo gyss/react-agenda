@@ -7,8 +7,8 @@ import './styles.css';
 
 class ContactList extends Component {
   render() {
-    const { list, contactEditting } = this.props.contacts;
-    const contactList = list.map(contact => <ContactListItem key={contact.id} contact={contact} selected={contactEditting === contact.id}></ContactListItem>);
+    const { list, contactEdited } = this.props.contacts;
+    const contactList = list.map(contact => <ContactListItem key={contact.id} contact={contact} selected={contactEdited && contactEdited.id === contact.id}></ContactListItem>);
     
     return (
       <div>

@@ -1,6 +1,8 @@
 import {
   ADD_CONTACT,
   REMOVE_CONTACT,
+  UPDATE_CONTACT_FORM,
+  UPDATE_CONTACT,
   LOAD_CONTACTS,
   EDIT_CONTACT,
 } from './constants';
@@ -21,6 +23,20 @@ export function loadContacts() {
     type: LOAD_CONTACTS,
     payload: []
   };
+}
+
+export function updateContact() {
+  console.log('asdasd');
+  return {
+    type: UPDATE_CONTACT
+  }
+}
+
+export function updateContactForm(contact) {
+  return {
+    type: UPDATE_CONTACT_FORM,
+    payload: contact
+  }
 }
 
 export function removeContact(contact) {

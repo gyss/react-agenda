@@ -26,7 +26,7 @@ class App extends Component {
             <ContactList />
           </Sidebar>
           <div className="content-area">
-            { !!this.props.contactEditting ? <ContactForm /> : <p>Click on "Add Contact" button to create a new contact.</p> }
+            { !!this.props.contactEdited ? <ContactForm /> : <p>Click on "Add Contact" button to create a new contact.</p> }
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ const mapDispatchToProps = function(dispatch) {
 }
 const mapStateToProps = (state, ownProps) => {
    return {
-      contactEditting: state.contacts.contactEditting
+      contactEdited: state.contacts.contactEdited
    };
 };
 

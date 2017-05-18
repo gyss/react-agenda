@@ -1,44 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './styles.css';
 
-class ContactForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      phone: ''
-    };
-  }
+import { updateContact, updateContactForm } from '../../actions';
 
+class ContactForm extends Component {
   handleChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" || target.type === "radio" ? target.checked : target.value;
     const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
+    this.props.updateContactForm(Object.assign({}, this.props.contactEdited, { [name]: value }));
   }
 
   handleSubmit = (event) => {
-    console.log(this.state);
+    //console.log(this.state);
     event.preventDefault();
+    this.props.updateContact();
   }
 
   render() {
+    const contact = this.props.contactEdited;
+    if (!contact) {
+      return null;
+    }
+
     return (
       <div className="contact-form">
         <form onSubmit={this.handleSubmit}>
           
             <div className="contact-form__field">
               <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="e.g.: Jane Doe" />
+              <input id="name" name="name" type="text" value={contact.name} onChange={this.handleChange} placeholder="e.g.: Jane Doe" />
             </div>
 
             <div className="contact-form__field">
               <label htmlFor="phone">Phone number</label>
-              <input id="phone" name="phone" type="text" value={this.state.phone} onChange={this.handleChange} placeholder="075 41..." />
+              <input id="phone" name="phone" type="text" value={contact.phone} onChange={this.handleChange} placeholder="075 41..." />
             </div>
 
             <button type="submit">Save</button> 
@@ -66,4 +64,23 @@ class ContactForm extends Component {
   }
 }
 
-export default ContactForm;
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    updateContactForm: (contact) => {
+      dispatch(updateContactForm(contact));
+    },
+    updateContact: () => {
+      dispatch(updateContact());
+    }
+  };
+}
+
+
+
+const mapStateToProps = (state, ownProps) => {
+   return {
+      contactEdited: state.contacts.contactEdited,
+   };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
