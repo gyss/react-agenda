@@ -1,11 +1,4 @@
-import {
-  ADD_CONTACT,
-  REMOVE_CONTACT,
-  UPDATE_CONTACT,
-  UPDATE_CONTACT_FORM,
-  LOAD_CONTACTS,
-  EDIT_CONTACT,
-} from './constants';
+import * as types from './constants';
 
 const initialState = {
   loading: true,
@@ -15,16 +8,16 @@ const initialState = {
 
 function contactsReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_CONTACT:
+    case types.ADD_CONTACT:
       return Object.assign({}, state, {
         list: [...state.list, action.payload] ,
         contactEdited: Object.assign({}, action.payload)
       });
-    case EDIT_CONTACT:
+    case types.EDIT_CONTACT:
       return Object.assign({}, state, {
         contactEdited: Object.assign({}, action.payload)
       });
-    case UPDATE_CONTACT:
+    case types.UPDATE_CONTACT:
       const indx = state.list.findIndex(contact => contact.id === state.contactEdited.id);
       return Object.assign({}, state, {
         list: [
@@ -33,11 +26,11 @@ function contactsReducer(state = initialState, action) {
           ...state.list.slice(indx + 1)
         ]
       });
-    case UPDATE_CONTACT_FORM:
+    case types.UPDATE_CONTACT_FORM:
       return Object.assign({}, state, {
         contactEdited: Object.assign({}, action.payload)
       });
-    case REMOVE_CONTACT:
+    case types.REMOVE_CONTACT:
       const index = state.list.findIndex(contact => contact.id === action.payload.id);
       return Object.assign({}, state, {
         list: [
@@ -46,7 +39,7 @@ function contactsReducer(state = initialState, action) {
         ],
         contactEdited: state.contactEdited && state.contactEdited.id === action.payload.id ? null : state.contactEdited
       });
-    case LOAD_CONTACTS:
+    case types.LOAD_CONTACTS:
       return Object.assign({}, state, {
         loading: false,
         list: action.payload
