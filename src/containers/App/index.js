@@ -36,7 +36,7 @@ class App extends Component {
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    loadContacts: (evt) => {
+    loadContacts: () => {
       dispatch(loadContacts());
     },
   };
