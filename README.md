@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Requirements
 * node `^6.10.3`
 * npm `^3.0.0`
+* (optional) yarn `^0.20.3`
 
 ## Development
 
@@ -13,6 +14,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. Start Development server: `yarn start`
 
 Open this url `http://localhost:3000/` in the browser. 
+
+
+## Test
+
+Run `yarn test` for running Jest.
+
 
 ## Deployment
 
