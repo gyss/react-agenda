@@ -1,0 +1,8 @@
+exports[`test renders correctly 1`] = `
+<div
+  className="header">
+  <h2>
+    React Agenda 2017
+  </h2>
+</div>
+`;
